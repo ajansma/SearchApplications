@@ -57,3 +57,34 @@ if __name__ == '__main__':
     a = agent(m,filled=True,footprints=True)
     m.tracePath({a:m.path})
     m.run() 
+
+    # Create a graph that mimics a map of metro stops
+    g1 = Graph()
+
+    # Starting point is Gran Via, Goal is Nuevos Ministerios
+    g1.set_vertex('Gran Via', [['Tribunal',2], ['Chueca',2], ['Sol',2]], [10])
+    g1.set_vertex('Tribunal', [['Alonso Martinez',3], ['Bilbao', 2]], [11])
+    g1.set_vertex('Alonso Martinez', [['Gregorio Maranon',3], ['Ruben Dario',2]], [8])
+    g1.set_vertex('Gregorio Maranon', [['Nuevos Ministerios',3], ['Alonso Cano',2]], [3])
+    g1.set_vertex('Bilbao', [['Iglesia',3]], [8])
+    g1.set_vertex('Iglesia', [['Rios Rosas',2]], [6])
+    g1.set_vertex('Rios Rosas', [['Metro Cuatro Caminos',2]], [4])
+    g1.set_vertex('Metro Cuatro Caminos', [['Nuevos Ministerios',2], ['Canal',3]], [3])
+    g1.set_vertex('Chueca', [['Alonso Martinez',2]], [14])
+    g1.set_vertex('Ruben Dario', [['Nunez De Balboa',2]], [10])
+    g1.set_vertex('Nunez De Balboa', [['Diego De Leon',2]], [8])
+    g1.set_vertex('Diego De Leon', [['Avenida de America',3]], [6])
+    g1.set_vertex('Avenida de America', [['Republica Argentina',2]], [3])
+    g1.set_vertex('Republica Argentina', [['Nuevos Ministerios',2]], [3])
+    g1.set_vertex('Sol', [['Sevilla',3], ['Callao',2]], [10])
+    g1.set_vertex('Sevilla', [], [999])
+    g1.set_vertex('Callao', [], [999])
+    g1.set_vertex('Alonso Cano', [], [999])
+    g1.set_vertex('Canal', [], [999])
+    g1.set_vertex('Nuevos Ministerios', [], [0])
+
+    print (g1)
+    
+    print('******Map******')
+    print_solution ("A* search f(n)=h(n)      ", g1.astar('Gran Via', 'Nuevos Ministerios', greedy_search))
+    print_solution ("A* search f(n)=g(n)+h(n) ", g1.astar('Gran Via', 'Nuevos Ministerios', astar_search))
