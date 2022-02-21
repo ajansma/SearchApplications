@@ -1,3 +1,15 @@
+'''
+Ariana Jansma
+Caden Kim
+Artificial Intelligence: Search Applications
+
+This program applies A* and Greedy Best First search to two real world problems
+The first is a simple maze and the second is a subway map problem. 
+
+This program also utilizes the pyamaze module for visualization purposes. 
+From: Muhammad Ahsan Naeem
+'''
+
 from graph import * 
 # pyamaze class to help with visualization of the maze
 # license/source in pyamaze
