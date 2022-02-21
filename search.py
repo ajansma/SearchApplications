@@ -46,6 +46,14 @@ if __name__ == '__main__':
 
     print(m1)
 
+    # print Maze
+    print('Goal: A  Start: T\n')
+    print('A  | E    I    M     Q\n')
+    print('B    F  | J  | N     R')
+    print('              --')
+    print('C  | G    K    O     S\n')
+    print('D    H    L    P  |  T')
+
     # print solution
     print('******MAZE********')
     print_solution ("A* search f(n)=h(n)      ", m1.astar('T', 'A', greedy_search))
